@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — Clean Main Collective</title><style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5.2vw,4rem)}
+h2{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+h3{font-size:1.12rem;font-family:inherit;font-weight:650;letter-spacing:0}
+p{margin:0 0 1em}
+a{color:inherit}
+.wrap{width:min(1080px,92vw);margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.08)}
+.top .wrap{display:flex;align-items:center;gap:1.2rem;height:64px}
+.brand{font-weight:700;letter-spacing:.01em;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--accent);display:inline-block}
+nav{margin-left:auto;display:flex;gap:1.4rem;font-size:.92rem}
+nav a{text-decoration:none;opacity:.75}
+nav a:hover{opacity:1}
+.hero{position:relative;overflow:hidden;padding:clamp(3rem,7vw,6rem) 0 clamp(2rem,4vw,3rem)}
+.hero .pat{position:absolute;inset:auto 0 0 0;width:100%;height:240px;color:var(--accent);pointer-events:none}
+.hero .wrap{position:relative}
+.kicker{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:650;color:var(--accent);margin-bottom:1.1rem}
+.hero p.lead{font-size:clamp(1.02rem,1.5vw,1.22rem);max-width:56ch;opacity:.9}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:.78rem 1.35rem;border-radius:2px;font-weight:600;font-size:.95rem;border:1px solid var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.25)}
+.btn:hover{filter:brightness(1.08)}
+.nums{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.5)}
+.nums .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.5rem 0}
+.num b{display:block;font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--accent)}
+.num span{font-size:.85rem;opacity:.7}
+section{padding:clamp(2.4rem,5vw,4rem) 0}
+.two{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:1.8rem}
+.card{background:#fff;border:1px solid rgba(0,0,0,.08);padding:1.35rem 1.4rem}
+.card h3{margin-bottom:.45rem}
+.card p{font-size:.94rem;opacity:.82;margin:0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;margin-top:1.8rem;counter-reset:s}
+.step{padding-top:1rem;border-top:2px solid var(--accent2)}
+.step b.n{display:block;font-family:Georgia,serif;font-size:1.5rem;color:var(--accent2);margin-bottom:.3rem}
+.step h3{font-size:1rem}
+.step p{font-size:.9rem;opacity:.8;margin:0}
+.news{list-style:none;padding:0;margin:1.6rem 0 0}
+.news li{display:grid;grid-template-columns:130px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.09)}
+.news time{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6;padding-top:.2rem}
+.news b{display:block;margin-bottom:.2rem}
+.news p{margin:0;font-size:.93rem;opacity:.8}
+.join{background:var(--accent);color:#fff}
+.join h2,.join a{color:#fff}
+.join .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+form{display:grid;gap:.7rem}
+label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+input,textarea,select{width:100%;padding:.7rem .8rem;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:.95rem;border-radius:2px}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
+form .btn{background:var(--accent2);border-color:var(--accent2);color:#1b1b1b;margin-top:.4rem;cursor:pointer;font:inherit;font-weight:700}
+.note{font-size:.84rem;opacity:.8;margin-top:.9rem}
+.ok{display:none;margin-top:.8rem;background:rgba(255,255,255,.16);padding:.8rem 1rem;font-size:.9rem}
+footer{padding:2.4rem 0 3rem;font-size:.86rem;opacity:.72}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;border-top:1px solid rgba(0,0,0,.1);padding-top:1.4rem}
+footer a{text-decoration:none;border-bottom:1px solid rgba(0,0,0,.25)}
+@media(max-width:760px){.two,.join .wrap{grid-template-columns:1fr}nav{display:none}.nums .wrap{grid-template-columns:1fr;gap:.8rem}.num{display:flex;gap:.6rem;align-items:baseline}.news li{grid-template-columns:1fr}}
+</style>
+<style>:root{--bg:#f7f5ef;--ink:#16211f;--accent:#0f5c5c;--accent2:#e8b44a}</style>
+</head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><span class="dot"></span>Clean Main Collective</a>
+<nav><a href="index.html#what">What we do</a><a href="index.html#join">Join</a></nav></div></header>
+<section><div class="wrap" style="max-width:74ch">
+<h1 style="font-size:clamp(1.9rem,3.6vw,2.8rem)">About Clean Main Collective</h1>
+<p>We are a volunteer group of 44 people in Frankfurt who organise monthly cleanups along the Main. Most of what we collect is plastic packaging and household items left behind after high water.</p>
+<p>Rivers are where a city meets its own waste. The Main bank between Osthafen and the Eiserner Steg is walked by families every weekend, and after every flood the grass is full of bottles, bags and styrofoam. We go out with gloves, grabbers and a weighing scale, sort what can be recycled, and publish the numbers so the problem stays visible.</p>
+<h2>How we are organised</h2>
+<p>We are an informal volunteer group with no paid staff. Decisions are taken in a monthly open meeting; everyone who shows up can vote. Money, if there is any, goes into materials: gloves, bags, tools, spare parts, seeds.</p>
+<h2>What we publish</h2>
+<p>Every activity is documented. Numbers on this site are counted by us and updated after each Frankfurt am Main event, not estimated.</p>
+<h2>Contact</h2>
+<p>Email: <a href="mailto:jan.mittenzwei@t-online.de">jan.mittenzwei@t-online.de</a><br>
+We answer within two working days. For press requests please write "press" in the subject.</p>
+<p><a class="btn ghost" href="index.html">Back to the site</a></p>
+</div></section>
+<footer><div class="wrap"><span>© 2026 Clean Main Collective, Frankfurt am Main.</span><span><a href="mailto:jan.mittenzwei@t-online.de">jan.mittenzwei@t-online.de</a></span></div></footer>
+</body></html>

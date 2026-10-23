@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Winterthur Food Rescue Riders — Winterthur</title>
+<meta name="description" content="Good bread should not end up in the bin.">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5.2vw,4rem)}
+h2{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+h3{font-size:1.12rem;font-family:inherit;font-weight:650;letter-spacing:0}
+p{margin:0 0 1em}
+a{color:inherit}
+.wrap{width:min(1080px,92vw);margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.08)}
+.top .wrap{display:flex;align-items:center;gap:1.2rem;height:64px}
+.brand{font-weight:700;letter-spacing:.01em;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--accent);display:inline-block}
+nav{margin-left:auto;display:flex;gap:1.4rem;font-size:.92rem}
+nav a{text-decoration:none;opacity:.75}
+nav a:hover{opacity:1}
+.hero{position:relative;overflow:hidden;padding:clamp(3rem,7vw,6rem) 0 clamp(2rem,4vw,3rem)}
+.hero .pat{position:absolute;inset:auto 0 0 0;width:100%;height:240px;color:var(--accent);pointer-events:none}
+.hero .wrap{position:relative}
+.kicker{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:650;color:var(--accent);margin-bottom:1.1rem}
+.hero p.lead{font-size:clamp(1.02rem,1.5vw,1.22rem);max-width:56ch;opacity:.9}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:.78rem 1.35rem;border-radius:2px;font-weight:600;font-size:.95rem;border:1px solid var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.25)}
+.btn:hover{filter:brightness(1.08)}
+.nums{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.5)}
+.nums .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.5rem 0}
+.num b{display:block;font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--accent)}
+.num span{font-size:.85rem;opacity:.7}
+section{padding:clamp(2.4rem,5vw,4rem) 0}
+.two{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:1.8rem}
+.card{background:#fff;border:1px solid rgba(0,0,0,.08);padding:1.35rem 1.4rem}
+.card h3{margin-bottom:.45rem}
+.card p{font-size:.94rem;opacity:.82;margin:0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;margin-top:1.8rem;counter-reset:s}
+.step{padding-top:1rem;border-top:2px solid var(--accent2)}
+.step b.n{display:block;font-family:Georgia,serif;font-size:1.5rem;color:var(--accent2);margin-bottom:.3rem}
+.step h3{font-size:1rem}
+.step p{font-size:.9rem;opacity:.8;margin:0}
+.news{list-style:none;padding:0;margin:1.6rem 0 0}
+.news li{display:grid;grid-template-columns:130px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.09)}
+.news time{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6;padding-top:.2rem}
+.news b{display:block;margin-bottom:.2rem}
+.news p{margin:0;font-size:.93rem;opacity:.8}
+.join{background:var(--accent);color:#fff}
+.join h2,.join a{color:#fff}
+.join .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+form{display:grid;gap:.7rem}
+label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+input,textarea,select{width:100%;padding:.7rem .8rem;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:.95rem;border-radius:2px}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
+form .btn{background:var(--accent2);border-color:var(--accent2);color:#1b1b1b;margin-top:.4rem;cursor:pointer;font:inherit;font-weight:700}
+.note{font-size:.84rem;opacity:.8;margin-top:.9rem}
+.ok{display:none;margin-top:.8rem;background:rgba(255,255,255,.16);padding:.8rem 1rem;font-size:.9rem}
+footer{padding:2.4rem 0 3rem;font-size:.86rem;opacity:.72}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;border-top:1px solid rgba(0,0,0,.1);padding-top:1.4rem}
+footer a{text-decoration:none;border-bottom:1px solid rgba(0,0,0,.25)}
+@media(max-width:760px){.two,.join .wrap{grid-template-columns:1fr}nav{display:none}.nums .wrap{grid-template-columns:1fr;gap:.8rem}.num{display:flex;gap:.6rem;align-items:baseline}.news li{grid-template-columns:1fr}}
+</style>
+<style>:root{--bg:#f7f6f1;--ink:#16211a;--accent:#2f6b46;--accent2:#e4b363}</style>
+</head><body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Winterthur Food Rescue Riders</a>
+  <nav><a href="#what">What we do</a><a href="#how">How it works</a><a href="#news">News</a><a href="#join">Join</a></nav>
+</div></header>
+
+<div class="hero">
+  <svg class="pat" viewBox="0 0 1200 240"><g stroke="currentColor" stroke-width="2" opacity=".16" fill="none"><path d="M0 60 C150 20 300 100 450 60 C600 20 750 100 900 60 C1050 20 1150 80 1200 70"/><path d="M0 120 C150 80 300 160 450 120 C600 80 750 160 900 120 C1050 80 1150 140 1200 130"/><path d="M0 180 C150 140 300 220 450 180 C600 140 750 220 900 180 C1050 140 1150 200 1200 190"/></g></svg>
+  <div class="wrap">
+    <div class="kicker">Winterthur · Switzerland</div>
+    <h1>Good bread should not end up in the bin.</h1>
+    <p class="lead">Bakeries and small grocers in Winterthur have perfectly good bread and vegetables left at closing time. Our volunteer riders collect it by bike and bring it to two social kitchens and a public sharing shelf. Around 300 kg per week is rescued.</p>
+    <div class="cta"><a class="btn" href="#join">Join us</a><a class="btn ghost" href="#what">What we do</a></div>
+  </div>
+</div>
+
+<div class="nums"><div class="wrap"><div class="num"><b>300 kg</b><span>rescued every week</span></div><div class="num"><b>11</b><span>partner shops</span></div><div class="num"><b>23</b><span>volunteer riders</span></div></div></div>
+
+<section id="what"><div class="wrap">
+  <div class="two">
+    <div><h2>Why we exist</h2><p>A bakery that closes at 18:30 cannot sell tomorrow what is left on the shelf. Throwing it away costs money and is a waste of everything that went into producing it. We collect within an hour of closing, on cargo bikes and trailers, and deliver while the food is still good. Everything is documented, so shops can see where their surplus goes.</p></div>
+    <div><h2>What we do</h2><div class="cards"><div class="card"><h3>Evening pickups</h3><p>Monday to Saturday between 18:00 and 20:00, routes of 20 to 40 minutes by bike.</p></div><div class="card"><h3>Sharing shelf</h3><p>A public shelf at the Neumarkt where anyone can take bread and vegetables, no questions asked.</p></div><div class="card"><h3>Social kitchens</h3><p>Two kitchens cook with our deliveries: one for a women's shelter, one for a neighbourhood lunch.</p></div></div></div>
+  </div>
+</div></section>
+
+<section id="how" style="background:rgba(255,255,255,.55)"><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps"><div class="step"><b class="n">1</b><h3>Shops announce surplus</h3><p>A short message at closing time: what is left and how much. No paperwork.</p></div><div class="step"><b class="n">2</b><h3>A rider takes the route</h3><p>Riders see the open pickups and claim one. Each route has a backup rider.</p></div><div class="step"><b class="n">3</b><h3>Delivery confirmed</h3><p>The kitchen or shelf confirms the drop-off, the kilograms go into the monthly counter.</p></div></div>
+</div></section>
+
+<section id="news"><div class="wrap">
+  <h2>Latest from the project</h2>
+  <ul class="news"><li><time>15 October 2026</time><div><b>14.2 tonnes rescued since January</b><p>The monthly average is now 300 kg, with Saturday as the strongest day.</p></div></li><li><time>20 September 2026</time><div><b>Two new bakeries joined</b><p>Both in Oberwinterthur, both with evening surplus that used to be thrown away.</p></div></li><li><time>11 July 2026</time><div><b>Cargo bike donated</b><p>A local business donated a cargo bike, which now covers the longest route to the shelter.</p></div></li></ul>
+</div></section>
+
+<section class="join" id="join"><div class="wrap">
+  <div>
+    <h2>Join the project</h2>
+    <p>Tell us which evenings you could ride and which part of the city suits you, and we will add you to the route list.</p>
+    <p class="note">We are volunteers, not a company. We answer within two working days.</p>
+    <p class="note">Write to <a href="mailto:adrian-wellnerr@t-online.de">adrian-wellnerr@t-online.de</a></p>
+  </div>
+  <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.reset();">
+    <div><label for="n">Your name</label><input id="n" required placeholder="First and last name"></div>
+    <div><label for="e">Email</label><input id="e" type="email" required placeholder="you@example.org"></div>
+    <div><label for="c">How would you like to help?</label>
+      <select id="c"><option>Volunteer</option><option>Partner organisation</option><option>Donation in kind</option><option>Just want the news</option></select></div>
+    <div><label for="m">Message</label><textarea id="m" rows="3" placeholder="A sentence about you"></textarea></div>
+    <button class="btn" type="submit">Send request</button>
+    <div class="ok">Thank you — your message is on its way. We will reply from our project mailbox.</div>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Winterthur Food Rescue Riders, Winterthur. Run by volunteers, no public funding.</span>
+  <span><a href="mailto:adrian-wellnerr@t-online.de">adrian-wellnerr@t-online.de</a></span>
+</div></footer>
+</body></html>

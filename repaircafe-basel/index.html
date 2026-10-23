@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Basel Repair Café Network — Basel</title>
+<meta name="description" content="Bring it broken. We fix it together.">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5.2vw,4rem)}
+h2{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+h3{font-size:1.12rem;font-family:inherit;font-weight:650;letter-spacing:0}
+p{margin:0 0 1em}
+a{color:inherit}
+.wrap{width:min(1080px,92vw);margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.08)}
+.top .wrap{display:flex;align-items:center;gap:1.2rem;height:64px}
+.brand{font-weight:700;letter-spacing:.01em;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--accent);display:inline-block}
+nav{margin-left:auto;display:flex;gap:1.4rem;font-size:.92rem}
+nav a{text-decoration:none;opacity:.75}
+nav a:hover{opacity:1}
+.hero{position:relative;overflow:hidden;padding:clamp(3rem,7vw,6rem) 0 clamp(2rem,4vw,3rem)}
+.hero .pat{position:absolute;inset:auto 0 0 0;width:100%;height:240px;color:var(--accent);pointer-events:none}
+.hero .wrap{position:relative}
+.kicker{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:650;color:var(--accent);margin-bottom:1.1rem}
+.hero p.lead{font-size:clamp(1.02rem,1.5vw,1.22rem);max-width:56ch;opacity:.9}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:.78rem 1.35rem;border-radius:2px;font-weight:600;font-size:.95rem;border:1px solid var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.25)}
+.btn:hover{filter:brightness(1.08)}
+.nums{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.5)}
+.nums .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.5rem 0}
+.num b{display:block;font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--accent)}
+.num span{font-size:.85rem;opacity:.7}
+section{padding:clamp(2.4rem,5vw,4rem) 0}
+.two{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:1.8rem}
+.card{background:#fff;border:1px solid rgba(0,0,0,.08);padding:1.35rem 1.4rem}
+.card h3{margin-bottom:.45rem}
+.card p{font-size:.94rem;opacity:.82;margin:0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;margin-top:1.8rem;counter-reset:s}
+.step{padding-top:1rem;border-top:2px solid var(--accent2)}
+.step b.n{display:block;font-family:Georgia,serif;font-size:1.5rem;color:var(--accent2);margin-bottom:.3rem}
+.step h3{font-size:1rem}
+.step p{font-size:.9rem;opacity:.8;margin:0}
+.news{list-style:none;padding:0;margin:1.6rem 0 0}
+.news li{display:grid;grid-template-columns:130px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.09)}
+.news time{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6;padding-top:.2rem}
+.news b{display:block;margin-bottom:.2rem}
+.news p{margin:0;font-size:.93rem;opacity:.8}
+.join{background:var(--accent);color:#fff}
+.join h2,.join a{color:#fff}
+.join .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+form{display:grid;gap:.7rem}
+label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+input,textarea,select{width:100%;padding:.7rem .8rem;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:.95rem;border-radius:2px}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
+form .btn{background:var(--accent2);border-color:var(--accent2);color:#1b1b1b;margin-top:.4rem;cursor:pointer;font:inherit;font-weight:700}
+.note{font-size:.84rem;opacity:.8;margin-top:.9rem}
+.ok{display:none;margin-top:.8rem;background:rgba(255,255,255,.16);padding:.8rem 1rem;font-size:.9rem}
+footer{padding:2.4rem 0 3rem;font-size:.86rem;opacity:.72}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;border-top:1px solid rgba(0,0,0,.1);padding-top:1.4rem}
+footer a{text-decoration:none;border-bottom:1px solid rgba(0,0,0,.25)}
+@media(max-width:760px){.two,.join .wrap{grid-template-columns:1fr}nav{display:none}.nums .wrap{grid-template-columns:1fr;gap:.8rem}.num{display:flex;gap:.6rem;align-items:baseline}.news li{grid-template-columns:1fr}}
+</style>
+<style>:root{--bg:#f8f4f0;--ink:#221a15;--accent:#8a3b1e;--accent2:#e0a03c}</style>
+</head><body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Basel Repair Café Network</a>
+  <nav><a href="#what">What we do</a><a href="#how">How it works</a><a href="#news">News</a><a href="#join">Join</a></nav>
+</div></header>
+
+<div class="hero">
+  <svg class="pat" viewBox="0 0 1200 240"><g stroke="currentColor" stroke-width="1.5" opacity=".18" fill="none"><path d="M0 40 H1200 M0 90 H1200 M0 140 H1200 M0 190 H1200"/><path d="M80 0 V240 M220 0 V240 M360 0 V240 M500 0 V240 M640 0 V240 M780 0 V240 M920 0 V240 M1060 0 V240"/></g></svg>
+  <div class="wrap">
+    <div class="kicker">Basel · Switzerland</div>
+    <h1>Bring it broken. We fix it together.</h1>
+    <p class="lead">We run repair cafés in three neighbourhoods of Basel. Volunteer repairers fix electronics, bicycles, lamps and small appliances instead of letting people throw them away. Around 60 items get a second life every month.</p>
+    <div class="cta"><a class="btn" href="#join">Join us</a><a class="btn ghost" href="#what">What we do</a></div>
+  </div>
+</div>
+
+<div class="nums"><div class="wrap"><div class="num"><b>60</b><span>items repaired per month</span></div><div class="num"><b>3</b><span>locations in Basel</span></div><div class="num"><b>17</b><span>volunteer repairers</span></div></div></div>
+
+<section id="what"><div class="wrap">
+  <div class="two">
+    <div><h2>Why we exist</h2><p>A broken toaster is not waste, it is usually a five-euro part and twenty minutes of somebody who knows how it works. Repair cafés keep appliances out of the incinerator, save their owners money and pass practical knowledge from one generation to the next. Everything happens in the open: the owner sits next to the repairer and sees what is being done.</p></div>
+    <div><h2>What we do</h2><div class="cards"><div class="card"><h3>Monthly repair café</h3><p>Kleinbasel, Gundeldingen and Riehen on rotating Saturdays, 10:00 to 16:00. Bring one item, stay while it is being repaired.</p></div><div class="card"><h3>Bike workshop</h3><p>Every second Wednesday: brakes, gears, punctures. Tools and stands are there, you do the work with guidance.</p></div><div class="card"><h3>Repair guides</h3><p>Our repairers write down what they fixed and how, so the knowledge does not leave with them.</p></div></div></div>
+  </div>
+</div></section>
+
+<section id="how" style="background:rgba(255,255,255,.55)"><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps"><div class="step"><b class="n">1</b><h3>Tell us what is broken</h3><p>Send a short description and a photo. We tell you whether we can help and which date fits.</p></div><div class="step"><b class="n">2</b><h3>Reserve a slot</h3><p>Slots are 45 minutes. Small appliances and bikes are the most common cases.</p></div><div class="step"><b class="n">3</b><h3>Fix it together</h3><p>You sit next to the repairer. If a spare part is needed, we tell you where to get it cheaply.</p></div></div>
+</div></section>
+
+<section id="news"><div class="wrap">
+  <h2>Latest from the project</h2>
+  <ul class="news"><li><time>18 October 2026</time><div><b>74 items in one afternoon</b><p>A record month: 31 lamps, 22 small appliances, 14 bicycles and 7 items we could not save.</p></div></li><li><time>14 September 2026</time><div><b>Riehen location opened</b><p>The third repair café now runs in the community centre at the Wettsteinplatz.</p></div></li><li><time>03 August 2026</time><div><b>Six new repairers trained</b><p>After a two-day introduction course, six volunteers now take their own tables.</p></div></li></ul>
+</div></section>
+
+<section class="join" id="join"><div class="wrap">
+  <div>
+    <h2>Join the project</h2>
+    <p>Send us the item and the neighbourhood, and we will offer you the next free slot.</p>
+    <p class="note">We are volunteers, not a company. We answer within two working days.</p>
+    <p class="note">Write to <a href="mailto:thomas.fanselau@t-online.de">thomas.fanselau@t-online.de</a></p>
+  </div>
+  <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.reset();">
+    <div><label for="n">Your name</label><input id="n" required placeholder="First and last name"></div>
+    <div><label for="e">Email</label><input id="e" type="email" required placeholder="you@example.org"></div>
+    <div><label for="c">How would you like to help?</label>
+      <select id="c"><option>Volunteer</option><option>Partner organisation</option><option>Donation in kind</option><option>Just want the news</option></select></div>
+    <div><label for="m">Message</label><textarea id="m" rows="3" placeholder="A sentence about you"></textarea></div>
+    <button class="btn" type="submit">Send request</button>
+    <div class="ok">Thank you — your message is on its way. We will reply from our project mailbox.</div>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Basel Repair Café Network, Basel. Run by volunteers, no public funding.</span>
+  <span><a href="mailto:thomas.fanselau@t-online.de">thomas.fanselau@t-online.de</a></span>
+</div></footer>
+</body></html>

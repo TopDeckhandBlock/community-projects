@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clean Main Collective — Frankfurt am Main</title>
+<meta name="description" content="Neighbours cleaning the riverbank, one Saturday at a time.">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5.2vw,4rem)}
+h2{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+h3{font-size:1.12rem;font-family:inherit;font-weight:650;letter-spacing:0}
+p{margin:0 0 1em}
+a{color:inherit}
+.wrap{width:min(1080px,92vw);margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.08)}
+.top .wrap{display:flex;align-items:center;gap:1.2rem;height:64px}
+.brand{font-weight:700;letter-spacing:.01em;text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--accent);display:inline-block}
+nav{margin-left:auto;display:flex;gap:1.4rem;font-size:.92rem}
+nav a{text-decoration:none;opacity:.75}
+nav a:hover{opacity:1}
+.hero{position:relative;overflow:hidden;padding:clamp(3rem,7vw,6rem) 0 clamp(2rem,4vw,3rem)}
+.hero .pat{position:absolute;inset:auto 0 0 0;width:100%;height:240px;color:var(--accent);pointer-events:none}
+.hero .wrap{position:relative}
+.kicker{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:650;color:var(--accent);margin-bottom:1.1rem}
+.hero p.lead{font-size:clamp(1.02rem,1.5vw,1.22rem);max-width:56ch;opacity:.9}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:.78rem 1.35rem;border-radius:2px;font-weight:600;font-size:.95rem;border:1px solid var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.25)}
+.btn:hover{filter:brightness(1.08)}
+.nums{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.5)}
+.nums .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:1.5rem 0}
+.num b{display:block;font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--accent)}
+.num span{font-size:.85rem;opacity:.7}
+section{padding:clamp(2.4rem,5vw,4rem) 0}
+.two{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;margin-top:1.8rem}
+.card{background:#fff;border:1px solid rgba(0,0,0,.08);padding:1.35rem 1.4rem}
+.card h3{margin-bottom:.45rem}
+.card p{font-size:.94rem;opacity:.82;margin:0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;margin-top:1.8rem;counter-reset:s}
+.step{padding-top:1rem;border-top:2px solid var(--accent2)}
+.step b.n{display:block;font-family:Georgia,serif;font-size:1.5rem;color:var(--accent2);margin-bottom:.3rem}
+.step h3{font-size:1rem}
+.step p{font-size:.9rem;opacity:.8;margin:0}
+.news{list-style:none;padding:0;margin:1.6rem 0 0}
+.news li{display:grid;grid-template-columns:130px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.09)}
+.news time{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;opacity:.6;padding-top:.2rem}
+.news b{display:block;margin-bottom:.2rem}
+.news p{margin:0;font-size:.93rem;opacity:.8}
+.join{background:var(--accent);color:#fff}
+.join h2,.join a{color:#fff}
+.join .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+form{display:grid;gap:.7rem}
+label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+input,textarea,select{width:100%;padding:.7rem .8rem;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);color:#fff;font:inherit;font-size:.95rem;border-radius:2px}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)}
+form .btn{background:var(--accent2);border-color:var(--accent2);color:#1b1b1b;margin-top:.4rem;cursor:pointer;font:inherit;font-weight:700}
+.note{font-size:.84rem;opacity:.8;margin-top:.9rem}
+.ok{display:none;margin-top:.8rem;background:rgba(255,255,255,.16);padding:.8rem 1rem;font-size:.9rem}
+footer{padding:2.4rem 0 3rem;font-size:.86rem;opacity:.72}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;border-top:1px solid rgba(0,0,0,.1);padding-top:1.4rem}
+footer a{text-decoration:none;border-bottom:1px solid rgba(0,0,0,.25)}
+@media(max-width:760px){.two,.join .wrap{grid-template-columns:1fr}nav{display:none}.nums .wrap{grid-template-columns:1fr;gap:.8rem}.num{display:flex;gap:.6rem;align-items:baseline}.news li{grid-template-columns:1fr}}
+</style>
+<style>:root{--bg:#f7f5ef;--ink:#16211f;--accent:#0f5c5c;--accent2:#e8b44a}</style>
+</head><body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Clean Main Collective</a>
+  <nav><a href="#what">What we do</a><a href="#how">How it works</a><a href="#news">News</a><a href="#join">Join</a></nav>
+</div></header>
+
+<div class="hero">
+  <svg class="pat" viewBox="0 0 1200 240" preserveAspectRatio="none"><path d="M0,120 C200,60 400,180 600,120 C800,60 1000,180 1200,120" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/><path d="M0,160 C200,100 400,220 600,160 C800,100 1000,220 1200,160" fill="none" stroke="currentColor" stroke-width="2" opacity=".22"/><path d="M0,200 C200,140 400,260 600,200 C800,140 1000,260 1200,200" fill="none" stroke="currentColor" stroke-width="2" opacity=".12"/></svg>
+  <div class="wrap">
+    <div class="kicker">Frankfurt am Main · Germany</div>
+    <h1>Neighbours cleaning the riverbank, one Saturday at a time.</h1>
+    <p class="lead">We are a volunteer group of 44 people in Frankfurt who organise monthly cleanups along the Main. Most of what we collect is plastic packaging and household items left behind after high water.</p>
+    <div class="cta"><a class="btn" href="#join">Join us</a><a class="btn ghost" href="#what">What we do</a></div>
+  </div>
+</div>
+
+<div class="nums"><div class="wrap"><div class="num"><b>44</b><span>active volunteers</span></div><div class="num"><b>1 860 kg</b><span>waste collected in 2026</span></div><div class="num"><b>11</b><span>cleanups this year</span></div></div></div>
+
+<section id="what"><div class="wrap">
+  <div class="two">
+    <div><h2>Why we exist</h2><p>Rivers are where a city meets its own waste. The Main bank between Osthafen and the Eiserner Steg is walked by families every weekend, and after every flood the grass is full of bottles, bags and styrofoam. We go out with gloves, grabbers and a weighing scale, sort what can be recycled, and publish the numbers so the problem stays visible.</p></div>
+    <div><h2>What we do</h2><div class="cards"><div class="card"><h3>Monthly cleanups</h3><p>First Saturday of every month, 9:00 to 12:00. Gloves, bags and grabbers are provided. Families welcome, children from age 6 with an adult.</p></div><div class="card"><h3>Spot reports</h3><p>Anyone can send us a photo and a location of a badly littered spot. We map it, verify it and put it on the next cleanup route.</p></div><div class="card"><h3>School workshops</h3><p>Two-hour sessions for classes 5 to 8 about plastic in rivers, sorting and what actually happens to waste in Frankfurt.</p></div></div></div>
+  </div>
+</div></section>
+
+<section id="how" style="background:rgba(255,255,255,.55)"><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps"><div class="step"><b class="n">1</b><h3>Come to a cleanup</h3><p>No registration needed, but it helps us plan gloves and bags.</p></div><div class="step"><b class="n">2</b><h3>Weigh and sort</h3><p>Everything is weighed and recorded per section of the bank.</p></div><div class="step"><b class="n">3</b><h3>Publish the results</h3><p>The monthly figures go public: kilograms collected, volunteers, hotspots.</p></div></div>
+</div></section>
+
+<section id="news"><div class="wrap">
+  <h2>Latest from the project</h2>
+  <ul class="news"><li><time>12 October 2026</time><div><b>Autumn cleanup: 61 volunteers, 214 kg</b><p>The stretch between the Osthafen and the Deutschherrnbrücke was cleaned for the third time this year.</p></div></li><li><time>07 September 2026</time><div><b>New section adopted: Mainufer Höchst</b><p>Thanks to the eight volunteers from Höchst who took over the western section.</p></div></li><li><time>19 August 2026</time><div><b>Summer result: 340 kg in one morning</b><p>Our biggest cleanup so far. 27 bags of recyclable plastic went to the city collection point.</p></div></li></ul>
+</div></section>
+
+<section class="join" id="join"><div class="wrap">
+  <div>
+    <h2>Join the project</h2>
+    <p>Write to us and we will send you the date of the next cleanup and what to bring.</p>
+    <p class="note">We are volunteers, not a company. We answer within two working days.</p>
+    <p class="note">Write to <a href="mailto:jan.mittenzwei@t-online.de">jan.mittenzwei@t-online.de</a></p>
+  </div>
+  <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';this.reset();">
+    <div><label for="n">Your name</label><input id="n" required placeholder="First and last name"></div>
+    <div><label for="e">Email</label><input id="e" type="email" required placeholder="you@example.org"></div>
+    <div><label for="c">How would you like to help?</label>
+      <select id="c"><option>Volunteer</option><option>Partner organisation</option><option>Donation in kind</option><option>Just want the news</option></select></div>
+    <div><label for="m">Message</label><textarea id="m" rows="3" placeholder="A sentence about you"></textarea></div>
+    <button class="btn" type="submit">Send request</button>
+    <div class="ok">Thank you — your message is on its way. We will reply from our project mailbox.</div>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Clean Main Collective, Frankfurt am Main. Run by volunteers, no public funding.</span>
+  <span><a href="mailto:jan.mittenzwei@t-online.de">jan.mittenzwei@t-online.de</a></span>
+</div></footer>
+</body></html>
